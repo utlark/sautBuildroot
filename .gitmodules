@@ -1,0 +1,3 @@
+[submodule "buildroot-2022.02.4"]
+	path = buildroot-2022.02.4
+	url = git://git.buildroot.net/buildroot
