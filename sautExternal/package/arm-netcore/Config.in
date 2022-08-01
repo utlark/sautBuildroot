@@ -1,0 +1,8 @@
+config BR2_PACKAGE_ARM_NETCORE
+	bool "arm-netcore"
+	depends on BR2_arm
+	help
+	  Userspace .NET Core runtime for Arm architecture
+
+comment "arm-netcore needs a Arm architecture"
+	depends on !BR2_arm

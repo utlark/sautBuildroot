@@ -1,0 +1,2 @@
+source "$BR2_EXTERNAL_SAUT_PATH/package/saut-qmlnet/Config.in"
+source "$BR2_EXTERNAL_SAUT_PATH/package/arm-netcore/Config.in"

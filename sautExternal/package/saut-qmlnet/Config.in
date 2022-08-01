@@ -1,0 +1,13 @@
+config BR2_PACKAGE_SAUT_QMLNET
+	bool "saut-qmlnet"
+	depends on BR2_PACKAGE_QT5
+	depends on BR2_PACKAGE_QT5BASE_WIDGETS
+	depends on BR2_PACKAGE_QT5QUICKCONTROLS2
+	help
+	  Qt-side Saut fork QmlNet libs
+
+comment "saut-qmlnet needs a 'Qt5', 'Qt5 Base Widgets' and 'Qt5 Quick Controls 2' to be built"
+	depends on !BR2_PACKAGE_QT5
+	depends on !BR2_PACKAGE_QT5BASE_WIDGETS
+	depends on !BR2_PACKAGE_QT5QUICKCONTROLS2
+
