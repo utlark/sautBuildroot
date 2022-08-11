@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# Start user application...
+#
+
+case "$1" in
+  start)
+ 	echo "Starting user applications..."
+	source /etc/profile
+	chown -f -R user:users /opt/
+ 	cd /opt/bin
+ 	if [ -e /opt/bin/init ]; then
+		chmod +x init
+		su -c "cd /opt/bin && ./init &" - user 
+	else
+		chmod +x start
+		su -c "cd /opt/bin && ./start &" - user
+	fi
+	;;
+  stop)
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+
