@@ -6,5 +6,5 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet static
   hwaddress ether B6:E0:15:EF:7C:1E
-  address 10.1.0.3
+  address 0.0.0.0
   netmask 255.255.0.0

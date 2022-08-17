@@ -1,11 +1,14 @@
 #!/bin/sh
+#
+# Setup time from fake RTC...
+#
 
 case "$1" in
   start)
-    echo "Starting network configuration script..."
+    echo "Setup time from fake RTC..."
     source /etc/profile
 
-    sh /etc/network/recovery-network &
+    sh /etc/rtc/outer-rtc.sh setLinux &
     ;;
   stop)
     ;;

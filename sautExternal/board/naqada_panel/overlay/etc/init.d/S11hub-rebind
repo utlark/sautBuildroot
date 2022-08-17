@@ -1,11 +1,14 @@
 #!/bin/sh
+#
+# Setup USB Hub...
+#
 
 case "$1" in
   start)
-    echo "Starting network configuration script..."
+    echo "Setup USB Hub..."
     source /etc/profile
 
-    sh /etc/network/recovery-network &
+    sh /etc/udev/hub-rebind &
     ;;
   stop)
     ;;

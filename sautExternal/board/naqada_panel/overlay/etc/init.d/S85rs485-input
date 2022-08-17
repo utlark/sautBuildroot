@@ -1,11 +1,14 @@
 #!/bin/sh
+#
+# Setup RS485 to input...
+#
 
 case "$1" in
   start)
-    echo "Starting network configuration script..."
+    echo "Setup RS485 to input..."
     source /etc/profile
 
-    sh /etc/network/recovery-network &
+    sh /etc/network/setup-rs485-input &
     ;;
   stop)
     ;;

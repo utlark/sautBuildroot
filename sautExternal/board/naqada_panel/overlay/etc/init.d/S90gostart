@@ -5,27 +5,31 @@
 
 case "$1" in
   start)
- 	echo "Starting user applications..."
-	source /etc/profile
-	chown -f -R user:users /opt/
- 	cd /opt/bin
- 	if [ -e /opt/bin/init ]; then
-		chmod +x init
-		su -c "cd /opt/bin && ./init &" - user 
-	else
-		chmod +x start
-		su -c "cd /opt/bin && ./start &" - user
-	fi
-	;;
+    echo "Starting user applications..."
+    source /etc/profile
+
+    if [ -d "/opt/bin" ]; then
+        chown -f -R user:users /opt/
+        if [ -e /opt/bin/init ]; then
+            chmod +x /opt/bin/init
+            su -c "cd /opt/bin && ./init &" - user 
+        else
+            chmod +x /opt/bin/start
+            su -c "cd /opt/bin && ./start &" - user
+        fi
+    else
+        echo "User application not found in /opt/bin"
+    fi
+    ;;
   stop)
-	;;
+    ;;
   restart|reload)
-	"$0" stop
-	"$0" start
-	;;
+    "$0" stop
+    "$0" start
+    ;;
   *)
-	echo "Usage: $0 {start|stop|restart}"
-	exit 1
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
 esac
 
 exit $?
