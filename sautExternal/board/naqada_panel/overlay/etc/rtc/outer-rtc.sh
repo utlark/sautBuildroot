@@ -3,16 +3,23 @@
 rtcTime=""
 rtcDate=""
 status=false
+port="/dev/ttyUSB0"
 
 function init () {
-   stty -F /dev/ttyUSB0 9600
-   cat /dev/ttyUSB0 > /tmp/rtc &
+   while [ ! -c $port ]
+   do
+      sleep 2
+   done
+   echo "RTC found: $(ls $port)"
+
+   stty -F $port 9600
+   cat $port> /tmp/rtc &
    sleep 5
 }
 
 function push () {
     cat /dev/null > /tmp/rtc
-    printf "!$1\r" > /dev/ttyUSB0
+    printf "!$1\r" > $port
     sleep 1
 }
 
