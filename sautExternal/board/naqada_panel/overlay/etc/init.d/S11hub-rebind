@@ -8,7 +8,11 @@ case "$1" in
     echo "Setup USB Hub..."
     source /etc/profile
 
-    sh /etc/udev/hub-rebind &
+    if [ -d /sys/bus/usb/drivers/hub/1-1:1.0 ]
+    then
+        echo '1-1:1.0' > /sys/bus/usb/drivers/hub/unbind
+        echo '1-1:1.0' > /sys/bus/usb/drivers/hub/bind
+    fi
     ;;
   stop)
     ;;

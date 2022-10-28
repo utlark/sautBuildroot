@@ -1,8 +1,0 @@
-#!/bin/sh
-
-if [ -d /sys/bus/usb/drivers/hub/1-1:1.0 ]
-then
-    echo '1-1:1.0' > /sys/bus/usb/drivers/hub/unbind
-    echo '1-1:1.0' > /sys/bus/usb/drivers/hub/bind
-fi
-
