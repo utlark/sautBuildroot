@@ -8,7 +8,7 @@ case "$1" in
     echo "Setup RS485 to input..."
     source /etc/profile
 
-    sh /etc/network/setup-rs485-input &
+    /etc/network/setup-rs485-input
     ;;
   stop)
     ;;
