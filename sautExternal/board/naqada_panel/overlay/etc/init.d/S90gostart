@@ -8,6 +8,8 @@ case "$1" in
     echo "Starting user applications..."
     source /etc/profile
 
+    mount -t ext4 /dev/mmcblk0p8 /opt
+
     if [ -d "/opt/bin" ]; then
         chown -f -R user:users /opt/
         if [ -e /opt/bin/init ]; then
