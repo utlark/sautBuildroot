@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# Starting app update service...
+#
+
+case "$1" in
+  start)
+    echo "Starting app update service..."
+    source /etc/profile
+
+    /etc/usbmount/hotUpdate.sh &
+    ;;
+  stop)
+    ;;
+  restart|reload)
+    "$0" stop
+    "$0" start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+esac
+
+exit $?
+
