@@ -1,1 +1,0 @@
-ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_VENDOR_ID}=="0bda", ENV{ID_MODEL_ID}=="f179", RUN+="/bin/sh -c 'killall hostapd > /dev/null'"
