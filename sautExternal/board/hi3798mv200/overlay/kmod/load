@@ -1,0 +1,14 @@
+insmod hi_media.ko
+insmod hi_mmz.ko
+insmod hi_common.ko
+insmod hi_pdm.ko
+insmod hi_pq.ko
+insmod hi_cipher.ko
+insmod hi_hdmi.ko
+insmod hi_vou.ko
+
+insmod hi_tde.ko
+insmod hi_otp.ko
+
+insmod hi_fb.ko
+insmod mali.ko

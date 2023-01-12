@@ -1,0 +1,14 @@
+rmmod mali.ko
+rmmod hi_fb.ko
+
+rmmod hi_otp.ko
+rmmod hi_tde.ko
+
+rmmod hi_vou.ko
+rmmod hi_hdmi.ko
+rmmod hi_cipher.ko
+rmmod hi_pq.ko
+rmmod hi_pdm.ko
+rmmod hi_common.ko
+rmmod hi_mmz.ko
+rmmod hi_media.ko

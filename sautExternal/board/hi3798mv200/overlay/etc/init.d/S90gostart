@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# Start user application...
+#
+
+case "$1" in
+  start)
+    echo "Starting user applications..."
+    source /etc/profile
+
+    mount -t ext4 /dev/mmcblk0p8 /opt
+
+    if [ -d "/opt/bin" ]; then
+        chown -f -R user:users /opt/
+        if [ -e /opt/bin/init ]; then
+            chmod +x /opt/bin/init
+            su -c "cd /opt/bin && ./init &" - user 
+        else
+            chmod +x /opt/bin/start
+            su -c "cd /opt/bin && ./start &" - user
+        fi
+    else
+        echo "User application not found in /opt/bin"
+    fi
+    ;;
+  stop)
+    ;;
+  restart|reload)
+    "$0" stop
+    "$0" start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+esac
+
+exit $?
+
